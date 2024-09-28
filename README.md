@@ -11,10 +11,10 @@ This health chatbot web application provides users with health-related informati
 7. Contributing
 
 ## Project Structure
-* app.py : Main flask application file that routes HTTP requests and controls the chatbot logic.
-* templates/ : Contains all HTML, CSS and images.
-* Dockerfile : Docker configuration to containerize the application.
-* .dockerignore & .gitignore : Have file paths which need to be ignored.
+* `app.py` : Main flask application file that routes HTTP requests and controls the chatbot logic.
+* `templates/` : Contains all HTML, CSS and images.
+* `Dockerfile` : Docker configuration to containerize the application.
+* `.dockerignore & .gitignore` : Have file paths which need to be ignored.
 
 ## Prerequisites
 Ensure you have the following installed:
@@ -25,28 +25,31 @@ Ensure you have the following installed:
 
 ## Installation
 1. Clone the repository:
+```
 git clone [https://github.com/your-username/health-chatbot.git](https://github.com/Srushti-02/HealthChatBot.git)
 cd HealthChatBot
-
+```
 2. Create a virtual environment and install dependencies:
+```
 python3 -m venv venv
 source venv/bin/activate  # For Linux/macOS
 venv\Scripts\activate     # For Windows
-
+```
 4. Run the application:
+```
 python app.py
-
+```
 ## Docker Setup
 To run the application inside a Docker container, follow these steps:
 
 1. Build the Docker image:
-docker build -t health-chatbot .
+```docker build -t health-chatbot .```
 
 2. Run the Docker container:
-docker run -d -p 5000:5000 health-chatbot
+```docker run -d -p 5000:5000 health-chatbot```
 
 ## File Structure
-
+```
 health-chatbot/
 │
 ├── app.py              # Main Flask application
@@ -65,7 +68,7 @@ health-chatbot/
 ├── liver_disease_model.h5    # weights for model to predict
 ├── users.db               # Database
 └── README.md           # Project README file
-
+```
 ## Contributing
 Constributions are welcome! Please follow the steps below to contribute:
 1. Fork the repository.
