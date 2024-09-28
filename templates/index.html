@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Chatbot Application</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Header Styles */
+        header {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 2.5em;
+            font-weight: normal;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card Container */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 8% 0;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: 300px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h2 {
+            margin: 15px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .card p {
+            margin: 0 15px 15px 15px;
+            color: #777;
+        }
+
+        /* Hover Effects */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        Health Chatbot Application
+    </header>
+
+    <!-- Card Container -->
+    <div class="card-container">
+
+        <!-- Liver Test Chatbot Card -->
+        <div class="card" onclick="window.location.href='/liver-test';">
+            <img src="https://www.oxfordgutandliver.co.uk/media/hy5dubte/abnormal-liver-blood-tests.jpg?anchor=center&mode=crop&width=960&height=604&rnd=132410522278600000" alt="Liver Test Chatbot">
+            <h2>Liver Test Chatbot</h2>
+            <p>Get quick results for liver health through our interactive chatbot.</p>
+        </div>
+
+        <!-- Diabetes Test Chatbot Card -->
+        <div class="card" onclick="window.location.href='/diabetes-test';">
+            <img src="https://apollosugar.com/wp-content/uploads/2019/03/Diabetes-Blood-Tests.jpg" alt="Diabetes Test Chatbot">
+            <h2>Diabetes Test Chatbot</h2>
+            <p>Assess your risk of diabetes with our easy-to-use chatbot.</p>
+        </div>
+
+        <!-- Kidney Test Chatbot Card -->
+        <div class="card" onclick="window.location.href='/kidney-test';">
+            <img src="https://apollosugar.com/wp-content/uploads/2018/03/shutterstock_344045438.jpg" alt="Kidney Test Chatbot">
+            <h2>Kidney Test Chatbot</h2>
+            <p>Check your kidney function with a few simple questions.</p>
+        </div>
+
+    </div>
+
+
+    
+</body>
+</html>

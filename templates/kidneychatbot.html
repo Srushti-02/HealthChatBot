@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidney Chatbot Page</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Chatbot Container */
+        .chatbot-container {
+            background-color: #fff;
+            width: 400px;
+            height: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .chatbot-header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        /* Chat Window */
+        .chat-window {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+
+        /* Message Bubbles */
+        .message {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message .content {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 1em;
+            line-height: 1.4em;
+        }
+
+        .message.user .content {
+            background-color: #4CAF50;
+            color: white;
+            border-bottom-right-radius: 0;
+        }
+
+        .message.bot .content {
+            background-color: #e0e0e0;
+            color: #333;
+            border-bottom-left-radius: 0;
+        }
+
+        /* Input Container */
+        .input-container {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        .input-container input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 1em;
+        }
+
+        .input-container button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .input-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container">
+        <!-- Header -->
+        <div class="chatbot-header">
+            Kidney Test Chatbot
+        </div>
+
+        <!-- Chat Window -->
+        <div class="chat-window" id="chat-window">
+            <!-- Messages will be appended here -->
+        </div>
+
+        <!-- Input Container -->
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for chatbot interaction
+        document.getElementById('send-btn').addEventListener('click', function() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput.trim() !== "") {
+                appendMessage('user', userInput);
+                document.getElementById('user-input').value = '';
+                setTimeout(() => {
+                    const botResponse = getBotResponse(userInput);
+                    appendMessage('bot', botResponse);
+                }, 1000);
+            }
+        });
+
+        document.getElementById('user-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('send-btn').click();
+            }
+        });
+
+        function appendMessage(sender, message) {
+            const chatWindow = document.getElementById('chat-window');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+
+            const contentElement = document.createElement('div');
+            contentElement.classList.add('content');
+            contentElement.textContent = message;
+
+            messageElement.appendChild(contentElement);
+            chatWindow.appendChild(messageElement);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        function getBotResponse(userInput) {
+            // Predefined bot responses
+            const responses = {
+                "hi": "Hello! How can I help you today?",
+                "hello": "Hi there! What can I do for you?",
+                "help": "Sure, I'm here to help. Please describe your issue.",
+                "what is your name": "I'm HealthBot, your virtual assistant."
+            };
+
+            // Basic response logic
+            const cleanedInput = userInput.toLowerCase();
+            return responses[cleanedInput] || "I'm sorry, I don't understand that. Can you please rephrase?";
+        }
+    </script>
+    
+</body>
+</html>
